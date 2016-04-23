@@ -1,3 +1,23 @@
+
+
+<div id='addItem'>
+    <h1>Add an Item</h1>
+
+    <form method='get' action='/gear/new'>
+        <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+        <input type='hidden' value='0' name='status'>
+        <input type='submit' value='I Lost an Item'>
+    </form>
+    <form method='get' action='/gear/new'>
+        <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+        <input type='hidden' value='1' name='status'>
+        <input type='submit' value='I Found an Item'>
+    </form>
+
+</div>
+
+
+
 <ul>
 <%@all_gear.each do |item|%>
 <li><%= item.gear_type %></li>

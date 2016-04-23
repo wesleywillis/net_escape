@@ -1,0 +1,50 @@
+
+<div>
+    <h1><%= @header%></h1>
+
+
+
+
+
+    <table>
+        <form method='post' action='/gear/create'>
+            <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden"
+            >
+            <input type='hidden' value='<%= @status %>' name='status'>
+            <tr>
+                <td>Gear Type:</td>
+                <td>
+                    <select name='gear[gear_type]'>
+                        <option value="volvo">Net</option>
+                        <option value="saab">Fishing</option>
+                        <option value="mercedes">Clothes</option>
+                        <option value="audi">Boating</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Quantity:</td>
+                <td>
+                    <select name='gear[gear_quanitiy]'>
+                        <option value='1'>1</option>
+                        <option value='2'>2</option>
+                        <option value='3'>3</option>
+                        <option value='4'>4</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Color:</td>
+                <td><input type='text' name='gear[color]'></td>
+            </tr>
+            <tr>
+                <td>Wildlife:</td>
+                <td><input type='text' name='gear[wildlife]'></td>
+            </tr>
+            <tr>
+                <td>Wildlife Type:</td>
+                <td><input type='text' name='gear[wildlife_type]'></td>
+            </tr>
+        </form>
+    </table>
+</div>

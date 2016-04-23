@@ -11,11 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160423174706) do
+ActiveRecord::Schema.define(version: 20160423215938) do
 
   create_table "gears", force: :cascade do |t|
     t.string   "gear_type"
-    t.integer  "quantity"
+    t.integer  "gear_quantity"
     t.string   "color"
     t.boolean  "wildlife"
     t.string   "wildlife_type"
