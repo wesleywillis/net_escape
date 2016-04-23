@@ -1,0 +1,3 @@
+class GearApiController < ApplicationController
+
+end
