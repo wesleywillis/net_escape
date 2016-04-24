@@ -32,11 +32,19 @@ class GearController < ApplicationController
       render "new"
     end
 
-    respond_to do |format|
-      format.html
-      format.json { render json: @gear }
-    end
+    # respond_to do |format|
+    #   format.html
+    #   format.json { render json: @gear }
+    # end
 
+  end
+
+  def found
+    gear = Gear.find(params[:id])
+    gear.found = "1"
+    gear.lost = "0"
+    gear.save
+    redirect_to '/'
   end
 
   private
