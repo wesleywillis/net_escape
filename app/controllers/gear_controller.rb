@@ -48,6 +48,7 @@ class GearController < ApplicationController
         format.json { render json: @gear }
       end
     end
+  end  
 
 
 
