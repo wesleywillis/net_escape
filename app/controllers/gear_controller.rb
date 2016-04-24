@@ -32,15 +32,21 @@ class GearController < ApplicationController
   def create
     @gear = Gear.new(gear_params)
     if @gear.save
-      redirect_to root_path
+      respond_to do |format|
+        format.html {redirect_to root_path}
+        format.json { render json: @gear }
+      end
     else
-      render "new"
+      respond_to do |format|
+        format.html {render "new"}
+        format.json { render json: @gear }
+      end
     end
 
-    respond_to do |format|
-      format.html
-      format.json { render json: @gear }
-    end
+    #respond_to do |format|
+    #  format.html {render "new"}
+    #  format.json { render json: @gear }
+    #end
 
   end
 
