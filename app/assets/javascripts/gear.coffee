@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
-  map = L.map("map").setView([51.505, -0.09], 13)
+  map = L.map("map").setView([47.601468 ,-122.330189], 13)
 
   googleLayer = new L.Google("ROADMAP")
   map.addLayer googleLayer
