@@ -10,6 +10,12 @@ class GearController < ApplicationController
     end
   end
 
+  def map
+    lost_gear = Gear.where(lost: "1")
+    render json: lost_gear
+  end
+
+
   def new
     @status = params[:status]
     if @status == '1'
@@ -22,22 +28,28 @@ class GearController < ApplicationController
     puts "$$" * 20
 
     @gear = Gear.new
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @gear }
+    end
   end
 
   def create
     @gear = Gear.new(gear_params)
     if @gear.save
-      redirect_to root_path
+      respond_to do |format|
+        format.html {redirect_to root_path}
+        format.json { render json: @gear }
+      end
     else
-      render "new"
+      respond_to do |format|
+        format.html {render "new"}
+        format.json { render json: @gear }
+      end
     end
 
-    # respond_to do |format|
-    #   format.html
-    #   format.json { render json: @gear }
-    # end
 
-  end
 
   def found
     gear = Gear.find(params[:id])
