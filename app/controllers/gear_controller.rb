@@ -50,7 +50,6 @@ class GearController < ApplicationController
     end
   end
 
-
   def found
     gear = Gear.find(params[:id])
     gear.found = "1"
