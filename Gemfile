@@ -30,6 +30,8 @@ gem 'gmaps4rails'
 
 gem 'leaflet-rails'
 
+gem "chartkick"
+
 
 
 # Use ActiveModel has_secure_password
