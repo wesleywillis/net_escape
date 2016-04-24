@@ -1,0 +1,3 @@
+<% @all_gear.each do |item| %>
+<%= { { :item => {:id => item.id, :gear_type => item.gear_type}.to_json.html_safe} %>
+<% end %>

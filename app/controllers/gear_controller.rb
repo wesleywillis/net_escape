@@ -3,6 +3,12 @@ class GearController < ApplicationController
     @all_gear = Gear.all
     @found_gear = Gear.where(found: true)
     @lost_gear = Gear.where(lost: true)
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @all_gear }
+    end
+
   end
 
   def new

@@ -54,7 +54,7 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-  root 'welcome#index'
+  root 'welcome#index', default: { format: :json }
 
-  resources :gear
+  resources :gear, defaults: { format: :json }
 end
