@@ -11,9 +11,9 @@ class GearController < ApplicationController
   end
 
   def map
-    lost_gear = Gear.where(lost: true)
-    render json: lost_gear
-  end  
+    @lost_gear = Gear.where(lost: "1")
+    render json: @lost_gear
+  end
 
 
   def new
