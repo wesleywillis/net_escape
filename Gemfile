@@ -26,6 +26,8 @@ gem 'bootstrap-sass'
 
 gem 'httparty'
 
+gem 'gmaps4rails', '~> 2.1', '>= 2.1.2'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
