@@ -22,6 +22,11 @@ class GearController < ApplicationController
     puts "$$" * 20
 
     @gear = Gear.new
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @gear }
+    end
   end
 
   def create
