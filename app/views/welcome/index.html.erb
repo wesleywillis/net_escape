@@ -1,25 +1,75 @@
 
+<div class='container' >
+    <div class='row'>
+        <div class='col-md-4 col-md-offset-4 btn-group'>
+            <h1 class="text-center">Add an Item</h1>
+            <form method='get' action='/gear/new' class="form-group">
+                <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+                <input type='hidden' value="1" name='status'>
+                <div class='form-group'>
+                    <!-- <button type="submit" class="btn btn-default">Lost Item</button> -->
+                    <input type='submit' value='Lost Item' class='form-control'>
+                </div>
+            </form>
+            <form method='get' action='/gear/new' class="form-group">
+                <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+                <input type='hidden' value="0" name='status'>
+                <div class='form-group'>
+                    <input type='submit' value='Found Item' class='form-control'>
+                   <!--  <button type="submit" class="btn btn-default">Found Item</button> -->
+                </div>
+            </form>
+        </div>
+    </div>
+    <% if @found_gear %>
+        <div id='found' class='col-md-6'>
+            <h1>Found Gear</h1>
+            <table class='table table-bordered table-striped'>
+                <tr>
+                    <th>Gear Type</th>
+                    <th>Color</th>
+                    <th>Latitude</th>
+                    <th>Longitude</th>
+                    <th>Found On</th>
+                </tr>
+                <% @found_gear.each do |g| %>
+                    <tr>
+                        <td><%= g.gear_type %></td>
+                        <td><%= g.color %></td>
+                        <td><%= g.latitude %></td>
+                        <td><%= g.longitude %></td>
+                        <td><%= g.updated_at.to_formatted_s(:long_ordinal) %></td>
+                    </tr>
+                <% end %>
+            </table>
+        </div>
+    <% end %>
 
-<div id='addItem'>
-    <h1>Add an Item</h1>
-
-    <form method='get' action='/gear/new'>
-        <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-        <input type='hidden' value='0' name='status'>
-        <input type='submit' value='I Lost an Item'>
-    </form>
-    <form method='get' action='/gear/new'>
-        <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-        <input type='hidden' value='1' name='status'>
-        <input type='submit' value='I Found an Item'>
-    </form>
-
+    <% if @lost_gear %>
+        <div id='lost' class='col-md-6'>
+            <h1>Lost Gear</h1>
+            <table class='table table-bordered table-striped'>
+                <tr>
+                    <th>Gear Type</th>
+                    <th>Color</th>
+                    <th>Latitude</th>
+                    <th>Longitude</th>
+                    <th>Reported On</th>
+                    <th>Action</th>
+                </tr>
+                <% @lost_gear.each do |g| %>
+                    <tr>
+                        <td><%= g.gear_type %></td>
+                        <td><%= g.color %></td>
+                        <td><%= g.latitude %></td>
+                        <td><%= g.longitude %></td>
+                        <td><%= g.created_at.to_formatted_s(:long_ordinal) %></td>
+                        <td><a href= "/gear/<%= g.id %>/found">Found</a>
+                    </tr>
+                <% end %>
+            </table>
+        </div>
+    <% end %>
 </div>
 
 
-
-<ul>
-<%@all_gear.each do |item|%>
-<li><%= item.gear_type %></li>
-<% end %>
-</ul>

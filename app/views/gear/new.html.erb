@@ -1,50 +1,62 @@
-
-<div>
-    <h1><%= @header%></h1>
-
-
-
-
-
-    <table>
+<div class='col-md-6 col-md-offset-3'>
+    <h2><%= @header%></h2>
         <form method='post' action='/gear/create'>
-            <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden"
-            >
-            <input type='hidden' value='<%= @status %>' name='status'>
-            <tr>
-                <td>Gear Type:</td>
-                <td>
-                    <select name='gear[gear_type]'>
-                        <option value="volvo">Net</option>
-                        <option value="saab">Fishing</option>
-                        <option value="mercedes">Clothes</option>
-                        <option value="audi">Boating</option>
+                <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+                <input type='hidden' value=<%= @status %> name='gear[lost]'>
+                <input type='hidden' value=<%= @found %> name='gear[found]'>
+                <!-- <label for='gear_type' class="col-sm-2 form-control-label">Gear Type</label> -->
+                <div class="form-group">
+                    <label for='gear_type'>Gear Type:</label>
+                    <select name='gear[gear_type]' class="form-control" id='gear_type'>
+                        <option value="net">Net</option>
+                        <option value="fishing">Fishing</option>
+                        <option value="clothes">Clothes</option>
+                        <option value="boating">Boating</option>
                     </select>
-                </td>
-            </tr>
-            <tr>
-                <td>Quantity:</td>
-                <td>
-                    <select name='gear[gear_quanitiy]'>
-                        <option value='1'>1</option>
-                        <option value='2'>2</option>
-                        <option value='3'>3</option>
-                        <option value='4'>4</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td>Color:</td>
-                <td><input type='text' name='gear[color]'></td>
-            </tr>
-            <tr>
-                <td>Wildlife:</td>
-                <td><input type='text' name='gear[wildlife]'></td>
-            </tr>
-            <tr>
-                <td>Wildlife Type:</td>
-                <td><input type='text' name='gear[wildlife_type]'></td>
-            </tr>
+                </div>
+
+                <div class='form-group'>
+                    <label for='gear_quantity'>Gear Quantity:</label>
+                        <select name='gear[gear_quantity]' class='form-control' id='gear_quantity'>
+                            <option value='1'>1</option>
+                            <option value='2'>2</option>
+                            <option value='3'>3</option>
+                            <option value='4'>4</option>
+                        </select>
+                </div>
+
+                <div class='form-group'>
+                    <label for='color'>Color:</label>
+                    <input type='text' name='gear[color]' class='form-control'>
+                </div>
+                <div class='form-group'>
+                    <label for='wildlife_type'>Wildlife Type:</label>
+                    <input type='text' name='gear[wildlife_type]' class='form-control'>
+                </div>
+                <div class='form-group'>
+                    <label for='wildlife_quantity'>Wildlife Quanity</label>
+                        <select name='gear[wildlife_quantity]' class='form-control' id='wildlife_quantity'>
+                            <option value='1'>1-1000</option>
+                            <option value='2'>1000-5000</option>
+                            <option value='3'>5000-10,000</option>
+                            <option value='4'>10000+</option>
+                        </select>
+                </div>
+                <div class='form-group'>
+                    <label for='latitude'>Latitude</label>
+                    <input type='float' name='gear[latitude]' class='form-control'>
+                </div>
+                <div class='form-group'>
+                    <label for='longitude'>Longitude</label>
+                    <input type='float' name='gear[longitude]' class='form-control'>
+                </div>
+                <div class='form-group'>
+                    <input type='submit' value='Add Item' class='form-control'>
+                </div>
+
+
+
+
+            </div>
         </form>
-    </table>
 </div>

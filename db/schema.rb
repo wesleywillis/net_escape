@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160423215938) do
+ActiveRecord::Schema.define(version: 20160423232250) do
 
   create_table "gears", force: :cascade do |t|
     t.string   "gear_type"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20160423215938) do
     t.integer  "wildlife_quantity"
     t.float    "latitude"
     t.float    "longitude"
-    t.boolean  "lost"
+    t.string   "lost"
     t.boolean  "found"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
