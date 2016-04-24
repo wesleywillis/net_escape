@@ -67,5 +67,5 @@
                 □ API allows researchers to see where lost and found gear is reported in realtime
                     ® This allows dataset to stay relevant
                     ® Allows retrieval crews to have most up to date location and description of ghost gear
-See the ios app repo here https://github.com/jessicalostinspace/lost-fishing-gear
-see the live web app here http://entanglerwrangler.herokuapp.com/
+# See the ios app repo here https://github.com/jessicalostinspace/lost-fishing-gear
+# See the live web app here http://entanglerwrangler.herokuapp.com/
