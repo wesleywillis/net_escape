@@ -10,6 +10,12 @@ class GearController < ApplicationController
     end
   end
 
+  def map
+    lost_gear = Gear.where(lost: true)
+    render json: lost_gear
+  end  
+
+
   def new
     @status = params[:status]
     if @status == '1'
